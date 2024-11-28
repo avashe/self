@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary of Dread</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Sans+JP:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: black; /* Dark background */
+            font-family: 'Creepster', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            min-height: 400px;
+            background: url('https://i.pinimg.com/236x/15/5c/72/155c72ce60eb69a9a27ce1445b93f47b.jpg') center center no-repeat;
+            background-size: cover;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            border: 2px solid #660000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .text {
+            text-align: center;
+            color: #880000; /* Blood red for both texts */
+            text-shadow: 2px 2px 5px black;
+            font-family: 'Noto Sans JP', sans-serif; /* Japanese-compatible font */
+            position: relative;
+        }
+
+        .entry {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
+            border: 1px solid #660000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+        }
+
+        /* Glitch effect */
+        .text::before,
+        .text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            text-shadow: -2px 0 red;
+            clip: rect(0, 100%, 0, 0);
+            animation: glitch 2s infinite ease-in-out;
+        }
+
+        .text::after {
+            text-shadow: 2px 0 blue;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes glitch {
+            0% {
+                clip: rect(0, 100%, 20%, 0);
+            }
+            10% {
+                clip: rect(10%, 100%, 40%, 0);
+                transform: translate(-2px, -2px);
+            }
+            20% {
+                clip: rect(5%, 100%, 30%, 0);
+                transform: translate(2px, 2px);
+            }
+            30% {
+                clip: rect(15%, 100%, 40%, 0);
+                transform: translate(-1px, 1px);
+            }
+            40% {
+                clip: rect(5%, 100%, 20%, 0);
+                transform: translate(1px, -1px);
+            }
+            50% {
+                clip: rect(10%, 100%, 30%, 0);
+                transform: translate(0, 0);
+            }
+            100% {
+                clip: rect(0, 100%, 20%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title -->
+        <div class="text" data-text="私に心を開いてください">
+            <div class="entry">
+                私に心を開いてください <!-- "Eerie Diary" in Japanese -->
+            </div>
+        </div>
+
+        <!-- Diary Entry -->
+        <div class="text" id="diary-entry">
+            <!-- Custom Diary Entry -->
+            <div class="entry">
+                I don't feel like I'm in my own skin... It feels like I just borrowed this from someone else. If I skinned myself, would I see the real me?
+            </div>
+        </div>
+    </div>
+</body>
+</html>
